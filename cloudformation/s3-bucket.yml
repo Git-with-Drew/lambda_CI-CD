@@ -14,9 +14,7 @@ Resources:
   MyS3Bucket:
     Type: 'AWS::S3::Bucket'
     Properties:
-      BucketName: !Sub -'${AWS::StackName}-${Environment}-${RandomGUID}'
-                       - { RandomGUID: !Select [0, !Split ["-", !Select [2, !Split ["/", !Ref AWS::StackId ]]]] }
-
+      BucketName: !Sub '${AWS::StackName}-${Environment}-${RandomGUID}'
       Tags:
         - Key: Environment
           Value: !Ref Environment
